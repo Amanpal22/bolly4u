@@ -1,0 +1,89 @@
+Options All +Indexes
+
+RewriteEngine On
+RewriteBase /
+RewriteRule ^d/(.+)/(.+)$ view-video.php?id=$1
+RewriteRule ^v/(.+)$ search-results.php?q=$1 [L]
+RewriteRule ^v/(.+)/page/(.+)$ search-results.php?q=$1&page=$2
+RewriteRule ^v/page/(.+)$ search-results.php?page=$1
+
+ErrorDocument 301 /index.php
+ErrorDocument 200 /index.php
+ErrorDocument 402 /index.php
+ErrorDocument 403 /index.php
+ErrorDocument 404 /404.php
+ErrorDocument 500 /index.php
+ErrorDocument 503 /index.php
+
+# SKYiTech.com
+
+addtype audio/x-mpegurl m3u
+addtype audio/mpegurl m3u
+addtype text/vnd.wap.wml wml
+addtype application/­vnd.wap.wmlc wmlc
+addtype text/­vnd.wap.wmlscript wmls
+addtype application/­vnd.wap.wmlscriptc wmlsc
+addtype image/vnd.wap.wbmp wbmp
+addType application/­java-archive jar
+addType application/­x-java-archive jar
+addType text/­vnd.sun.j2me.app-desc­riptor;charset=UTF-8­ jad
+addType application/­vnd.symbian.install sis
+addType application/­vnd.symbian.install sisx
+addType audio/3gpp 3gp
+addType video/3gpp 3gp
+addType audio/x-wav wav
+addType audio/amr amr
+addType audio/amr-wb awb
+addType audio/mpeg mp3
+addType audio/x-midi mid
+addType audio/midi mid
+addType audio/midi midi
+addType application/x-smaf mmf
+addType application/­vnd.smaf mmf
+addType application/­vnd.mophun.applicatio­n mpn
+addType application/­vnd.mophun.applicatio­n mpc
+addType application/­vnd.eri.thm thm
+addType application/­vnd.nok-s40theme nth
+addType image/jpeg jpg
+addType image/jpeg jpeg
+addType image/png png
+addType image/gif gif
+addType image/gif GIF
+addType image/jpeg JPG
+addType image/jpeg JPEG
+addType image/png PNG
+
+# Do not change this line.
+
+# BEGIN SKYiTech
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END SKYiTech
+
+
+# <FilesMatch "(?i)^.*\.(ico|flv|j­pg|jpeg|png|gif|js|c­ss)$">
+# Header unset Last-Modified
+# Header set Cache-Control "public, no-transform"
+# </FilesMatch>
+
+<IfModule mod_deflate.c>
+<FilesMatch "\.(js|css|ico)$">
+SetOutputFilter DEFLATE
+</FilesMatch>
+</IfModule>
+
+#<filesMatch "\\.(ico|jpg|jpeg|pn­g|gif)$">
+# Header set Cache-Control "max-age=604800, public"
+#</filesMatch>
+#
+#<filesMatch "\\.(css|css?|js)$">
+# Header set Cache-Control "max-age=604800, public"
+#</filesMatch>IndexOptions -FancyIndexing
+IndexOptions -FancyIndexing
